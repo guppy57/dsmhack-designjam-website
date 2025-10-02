@@ -7,7 +7,7 @@ import { FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon } from "@phosphor
 
 export default function Home() {
   return (
-    <div className="max-w-6xl mx-auto z-20 relative px-4 min-[896px]:px-0">
+    <div className="max-w-6xl mx-auto z-20 relative px-4">
       <div id="hero" className="pt-24">
         {/* <Image
           src="designjam-logo.svg"
