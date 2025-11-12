@@ -18,11 +18,18 @@ import {
   Crown,
   GraduationCap,
 } from "@phosphor-icons/react";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div className="max-w-6xl mx-auto z-20 relative px-4">
-      <div id="hero" className="pt-24">
+      <motion.div
+        id="hero"
+        className="pt-24"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
         {/* <Image
           src="designjam-logo.svg"
           height={100}
@@ -30,32 +37,75 @@ export default function Home() {
           className="h-24 w-auto mb-12"
           alt="DesignJam logo"
         /> */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl leading-14 sm:leading-17 md:leading-20 font-bold tracking-tighter">
+        <motion.h1
+          className="text-5xl sm:text-6xl md:text-7xl leading-14 sm:leading-17 md:leading-20 font-bold tracking-tighter"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.3 }}
+        >
           Bringing <span className="text-[#9AB749]">designers</span> and{" "}
           <span className="text-[#008EA3]">nonprofits</span> together to build a
           more beautiful and helpful{" "}
           <span className="text-[#FA8136]">Des Moines</span>
-        </h1>
-        <p className="text-2xl max-w-3xl mt-6">
+        </motion.h1>
+        <motion.p
+          className="text-2xl max-w-3xl mt-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.6 }}
+        >
           24 hour event where designers pair with non-profits to redesign logos,
           tweak websites, and beautify branding.
-        </p>
-        <div className="flex items-center justify-start gap-2 mt-6">
+        </motion.p>
+        <motion.div
+          className="flex items-center justify-start gap-2 mt-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.9 }}
+        >
           <Button style="primary" href="" text="Designer registration" />
           <Button style="secondary" href="" text="Nonprofit application" />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       <div id="bento-boxes" className="mt-24">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          <div className="col-span-2 sm:col-span-1">
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-3 gap-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.25,
+              },
+            },
+          }}
+        >
+          <motion.div
+            className="col-span-2 sm:col-span-1"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             <BentoCard className="flex flex-col items-start justify-between">
               <h2 className="text-xl tracking-tight font-bold mb-6">Where</h2>
               <div className="w-full">
                 <div className="flex items-start justify-start gap-2 mb-6 text-lg sm:text-md">
-                  <div className="rounded-full w-12 h-12 flex items-center justify-center bg-[#EBFFB4]">
+                  <motion.div
+                    className="rounded-full w-12 h-12 flex items-center justify-center bg-[#EBFFB4]"
+                    whileHover={{ scale: 1.1, rotate: 10 }}
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{
+                      y: { repeat: Infinity, duration: 2, ease: "easeInOut" },
+                      hover: { type: "spring", stiffness: 400, damping: 17 }
+                    }}
+                  >
                     <MapPinIcon color="#9AB749" size={32} weight="bold" />
-                  </div>
+                  </motion.div>
                   <p>
                     Gravitate
                     <br />
@@ -76,9 +126,15 @@ export default function Home() {
                 />
               </div>
             </BentoCard>
-          </div>
+          </motion.div>
 
-          <div className="col-span-2 sm:col-span-1">
+          <motion.div
+            className="col-span-2 sm:col-span-1"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             <BentoCard className="flex flex-col items-start justify-between">
               <h2 className="text-xl tracking-tight font-bold mb-6">
                 Who's invited
@@ -86,7 +142,16 @@ export default function Home() {
               <div>
                 <p className={"mb-4"}>
                   <div className="flex items-center justify-start gap-2 mb-2">
-                    <PaintBrushIcon color="#0AD1EE" size={24} weight="bold" />
+                    <motion.div
+                      whileHover={{ scale: 1.2, rotate: -10 }}
+                      animate={{ rotate: [-5, 5, -5] }}
+                      transition={{
+                        rotate: { repeat: Infinity, duration: 2.5, ease: "easeInOut" },
+                        hover: { type: "spring", stiffness: 400, damping: 17 }
+                      }}
+                    >
+                      <PaintBrushIcon color="#0AD1EE" size={24} weight="bold" />
+                    </motion.div>
                     <p className="font-semibold text-lg">Designers</p>
                   </div>
                   Graphic designers, web designers, brand strategists, and
@@ -95,7 +160,16 @@ export default function Home() {
                 </p>
                 <p>
                   <div className="flex items-center justify-start gap-2 mb-2">
-                    <HeartIcon color="#FF9A3B" size={24} weight="bold" />
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{
+                        scale: { repeat: Infinity, duration: 1.5, ease: "easeInOut" },
+                        hover: { type: "spring", stiffness: 400, damping: 17 }
+                      }}
+                    >
+                      <HeartIcon color="#FF9A3B" size={24} weight="bold" />
+                    </motion.div>
                     <p className="font-semibold text-lg">Nonprofits</p>
                   </div>
                   501(c)3 organizations in the Des Moines area operating for
@@ -103,9 +177,15 @@ export default function Home() {
                 </p>
               </div>
             </BentoCard>
-          </div>
+          </motion.div>
 
-          <div className="col-span-2 md:col-span-1">
+          <motion.div
+            className="col-span-2 md:col-span-1"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             <BentoCard className="flex flex-col items-start justify-between">
               <h2 className="text-xl tracking-tight font-bold mb-6">
                 About dsmHack
@@ -118,11 +198,31 @@ export default function Home() {
                 never be barriers to doing good.
               </p>
             </BentoCard>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-4">
-          <div className="col-span-1">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.25,
+              },
+            },
+          }}
+        >
+          <motion.div
+            className="col-span-1"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             <BentoCard className={"flex flex-col items-start justify-between"}>
               <p className="text-lg font-medium leading-6">
                 Design Jam is a weekend-long creative marathon where talented
@@ -137,9 +237,15 @@ export default function Home() {
                 February 21-22, 2025 · Applications close February 15th, 2025
               </p>
             </BentoCard>
-          </div>
+          </motion.div>
 
-          <div className="col-span-1 md:col-span-2">
+          <motion.div
+            className="col-span-1 md:col-span-2"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             <BentoCard className="grid grid-cols-2 gap-4">
               <div className="col-span-2 md:col-span-1 flex flex-col items-start justify-between">
                 <div>
@@ -163,11 +269,31 @@ export default function Home() {
                 <div className="w-full h-full bg-gray-500 rounded-lg" />
               </div>
             </BentoCard>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-          <div className="col-span-1">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.25,
+              },
+            },
+          }}
+        >
+          <motion.div
+            className="col-span-1"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             <BentoCard className="flex flex-col items-start justify-between h-full">
               <div>
                 <h2 className="text-xl tracking-tight font-bold mb-6">
@@ -175,28 +301,65 @@ export default function Home() {
                 </h2>
                 <div className="space-y-3">
                   <div className="flex items-start gap-2">
-                    <Certificate color="#9AB749" size={28} weight="bold" />
+                    <motion.div
+                      whileHover={{ scale: 1.2, rotate: 10 }}
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{
+                        scale: { repeat: Infinity, duration: 2, ease: "easeInOut" },
+                        hover: { type: "spring", stiffness: 400, damping: 17 }
+                      }}
+                    >
+                      <Certificate color="#9AB749" size={28} weight="bold" />
+                    </motion.div>
                     <div>
                       <p className="font-semibold">Best Brand Kit</p>
                       <p className="text-sm text-gray-600">To be announced</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Sparkle color="#0AD1EE" size={28} weight="bold" />
+                    <motion.div
+                      whileHover={{ scale: 1.2, rotate: 180 }}
+                      animate={{ opacity: [1, 0.5, 1], scale: [1, 1.15, 1] }}
+                      transition={{
+                        opacity: { repeat: Infinity, duration: 2, ease: "easeInOut" },
+                        scale: { repeat: Infinity, duration: 2, ease: "easeInOut" },
+                        hover: { type: "spring", stiffness: 400, damping: 17 }
+                      }}
+                    >
+                      <Sparkle color="#0AD1EE" size={28} weight="bold" />
+                    </motion.div>
                     <div>
                       <p className="font-semibold">Best Bonus Project</p>
                       <p className="text-sm text-gray-600">To be announced</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Crown color="#FA8136" size={28} weight="bold" />
+                    <motion.div
+                      whileHover={{ scale: 1.2, y: -5 }}
+                      animate={{ y: [0, -3, 0] }}
+                      transition={{
+                        y: { repeat: Infinity, duration: 2.5, ease: "easeInOut" },
+                        hover: { type: "spring", stiffness: 400, damping: 17 }
+                      }}
+                    >
+                      <Crown color="#FA8136" size={28} weight="bold" />
+                    </motion.div>
                     <div>
                       <p className="font-semibold">Best Overall</p>
                       <p className="text-sm text-gray-600">To be announced</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <GraduationCap color="#008EA3" size={28} weight="bold" />
+                    <motion.div
+                      whileHover={{ scale: 1.2, rotate: -10 }}
+                      animate={{ rotate: [-3, 3, -3] }}
+                      transition={{
+                        rotate: { repeat: Infinity, duration: 3, ease: "easeInOut" },
+                        hover: { type: "spring", stiffness: 400, damping: 17 }
+                      }}
+                    >
+                      <GraduationCap color="#008EA3" size={28} weight="bold" />
+                    </motion.div>
                     <div>
                       <p className="font-semibold">Best Student Project</p>
                       <p className="text-sm text-[#008EA3] font-bold">
@@ -210,9 +373,15 @@ export default function Home() {
                 Prize amounts to be announced
               </p>
             </BentoCard>
-          </div>
+          </motion.div>
 
-          <div className="col-span-1">
+          <motion.div
+            className="col-span-1"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             <BentoCard className="flex flex-col items-start justify-between h-full">
               <div>
                 <h2 className="text-xl tracking-tight font-bold mb-6">
@@ -240,9 +409,15 @@ export default function Home() {
                 </div>
               </div>
             </BentoCard>
-          </div>
+          </motion.div>
 
-          <div className="col-span-1">
+          <motion.div
+            className="col-span-1"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             <BentoCard className="flex flex-col items-start justify-between h-full">
               <div>
                 <h2 className="text-xl tracking-tight font-bold mb-6">
@@ -263,49 +438,122 @@ export default function Home() {
                 </div>
               </div>
             </BentoCard>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
-      <div id="footer" className="mt-48">
-        <div
+      <motion.div
+        id="footer"
+        className="mt-48"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.div
           id="footer-cta"
           className="flex flex-col items-center justify-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.35,
+              },
+            },
+          }}
         >
-          <h2 className="font-semibold text-4xl sm:text-5xl tracking-tight text-center">
+          <motion.h2
+            className="font-semibold text-4xl sm:text-5xl tracking-tight text-center"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             Creativity for Community Betterment
-          </h2>
-          <p className="text-lg sm:text-xl mt-4 text-center">
+          </motion.h2>
+          <motion.p
+            className="text-lg sm:text-xl mt-4 text-center"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             Join us to make Des Moines a more beautiful and helpful place
-          </p>
-          <div className="flex items-center justify-start gap-2 mt-6">
+          </motion.p>
+          <motion.div
+            className="flex items-center justify-start gap-2 mt-6"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             <Button style="primary" href="" text="Designer registration" />
             <Button style="secondary" href="" text="Nonprofit application" />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div id="footer-details" className="mt-48">
+        <motion.div
+          id="footer-details"
+          className="mt-48"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+              },
+            },
+          }}
+        >
           <div className="flex items-center justify-center gap-x-2">
-            <a
+            <motion.a
               className="p-1 rounded-lg bg-white drop-shadow-2xl flex items-center justify-center"
               href="https://www.facebook.com/dsmHack/"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <FacebookLogoIcon color="#9AB749" size={32} weight="bold" />
-            </a>
+            </motion.a>
 
-            <a
+            <motion.a
               className="p-1 rounded-lg bg-white drop-shadow-2xl flex items-center justify-center"
               href="https://www.instagram.com/dsm_hack/"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <InstagramLogoIcon color="#008EA3" size={32} weight="bold" />
-            </a>
+            </motion.a>
 
-            <a
+            <motion.a
               className="p-1 rounded-lg bg-white drop-shadow-2xl flex items-center justify-center"
               href="https://www.linkedin.com/company/dsmhack"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <LinkedinLogoIcon color="#FA8136" size={32} weight="bold" />
-            </a>
+            </motion.a>
           </div>
           <div className="text-center flex flex-col items-center justify-end mt-8 mb-4">
             <a
@@ -322,8 +570,8 @@ export default function Home() {
               Website designed and maintained by Armaan Gupta
             </a>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
