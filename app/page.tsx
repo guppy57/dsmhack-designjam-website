@@ -17,12 +17,39 @@ import {
   Sparkle,
   Crown,
   GraduationCap,
+  Gear,
 } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="max-w-6xl mx-auto z-20 relative px-4">
+    <div className="relative overflow-hidden">
+      {/* Decorative rotating gears */}
+      <motion.div
+        className="absolute top-0 right-0 -translate-y-[40%] translate-x-[40%] z-10 pointer-events-none"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      >
+        <Gear size={600} className="text-[#9AB749]" weight="thin" />
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-0 left-0 translate-y-[40%] -translate-x-[40%] z-10 pointer-events-none"
+        animate={{ rotate: -360 }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+      >
+        <Gear size={600} className="text-[#008EA3]" weight="thin" />
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-0 right-0 translate-y-[30%] translate-x-[20%] z-10 pointer-events-none"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+      >
+        <Gear size={400} className="text-[#FA8136]" weight="thin" />
+      </motion.div>
+
+      <div className="max-w-6xl mx-auto z-20 relative px-4">
       <motion.div
         id="hero"
         className="pt-24"
@@ -572,6 +599,7 @@ export default function Home() {
           </div>
         </motion.div>
       </motion.div>
+      </div>
     </div>
   );
 }
