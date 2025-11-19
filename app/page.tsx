@@ -30,7 +30,7 @@ export default function Home() {
         animate={{ rotate: 360 }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       >
-        <Gear size={600} className="text-[#9AB749]" weight="thin" />
+        <Gear size={600} className="text-gray-400 opacity-20" weight="thin" />
       </motion.div>
 
       <motion.div
@@ -38,7 +38,7 @@ export default function Home() {
         animate={{ rotate: -360 }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
       >
-        <Gear size={600} className="text-[#008EA3]" weight="thin" />
+        <Gear size={600} className="text-[#008EA3] opacity-50" weight="thin" />
       </motion.div>
 
       <motion.div
@@ -46,7 +46,7 @@ export default function Home() {
         animate={{ rotate: 360 }}
         transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
       >
-        <Gear size={400} className="text-[#FA8136]" weight="thin" />
+        <Gear size={400} className="text-[#FA8136] opacity-50" weight="thin" />
       </motion.div>
 
       <div className="max-w-6xl mx-auto z-20 relative px-4">
