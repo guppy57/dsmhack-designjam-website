@@ -124,11 +124,14 @@ export default function Home() {
                 <div className="flex items-start justify-start gap-2 mb-6 text-lg sm:text-md">
                   <motion.div
                     className="rounded-full w-12 h-12 flex items-center justify-center bg-[#EBFFB4]"
-                    whileHover={{ scale: 1.1, rotate: 10 }}
+                    whileHover={{
+                      scale: 1.1,
+                      rotate: 10,
+                      transition: { type: "spring", stiffness: 400, damping: 17 }
+                    }}
                     animate={{ y: [0, -5, 0] }}
                     transition={{
-                      y: { repeat: Infinity, duration: 2, ease: "easeInOut" },
-                      hover: { type: "spring", stiffness: 400, damping: 17 }
+                      y: { repeat: Infinity, duration: 2, ease: "easeInOut" }
                     }}
                   >
                     <MapPinIcon color="#9AB749" size={32} weight="bold" />
@@ -170,11 +173,14 @@ export default function Home() {
                 <p className={"mb-4"}>
                   <div className="flex items-center justify-start gap-2 mb-2">
                     <motion.div
-                      whileHover={{ scale: 1.2, rotate: -10 }}
+                      whileHover={{
+                        scale: 1.2,
+                        rotate: -10,
+                        transition: { type: "spring", stiffness: 400, damping: 17 }
+                      }}
                       animate={{ rotate: [-5, 5, -5] }}
                       transition={{
-                        rotate: { repeat: Infinity, duration: 2.5, ease: "easeInOut" },
-                        hover: { type: "spring", stiffness: 400, damping: 17 }
+                        rotate: { repeat: Infinity, duration: 2.5, ease: "easeInOut" }
                       }}
                     >
                       <PaintBrushIcon color="#0AD1EE" size={24} weight="bold" />
@@ -188,11 +194,13 @@ export default function Home() {
                 <p>
                   <div className="flex items-center justify-start gap-2 mb-2">
                     <motion.div
-                      whileHover={{ scale: 1.2 }}
+                      whileHover={{
+                        scale: 1.2,
+                        transition: { type: "spring", stiffness: 400, damping: 17 }
+                      }}
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{
-                        scale: { repeat: Infinity, duration: 1.5, ease: "easeInOut" },
-                        hover: { type: "spring", stiffness: 400, damping: 17 }
+                        scale: { repeat: Infinity, duration: 1.5, ease: "easeInOut" }
                       }}
                     >
                       <HeartIcon color="#FF9A3B" size={24} weight="bold" />
@@ -329,11 +337,14 @@ export default function Home() {
                 <div className="space-y-3">
                   <div className="flex items-start gap-2">
                     <motion.div
-                      whileHover={{ scale: 1.2, rotate: 10 }}
+                      whileHover={{
+                        scale: 1.2,
+                        rotate: 10,
+                        transition: { type: "spring", stiffness: 400, damping: 17 }
+                      }}
                       animate={{ scale: [1, 1.05, 1] }}
                       transition={{
-                        scale: { repeat: Infinity, duration: 2, ease: "easeInOut" },
-                        hover: { type: "spring", stiffness: 400, damping: 17 }
+                        scale: { repeat: Infinity, duration: 2, ease: "easeInOut" }
                       }}
                     >
                       <Certificate color="#9AB749" size={28} weight="bold" />
@@ -345,12 +356,15 @@ export default function Home() {
                   </div>
                   <div className="flex items-start gap-2">
                     <motion.div
-                      whileHover={{ scale: 1.2, rotate: 180 }}
+                      whileHover={{
+                        scale: 1.2,
+                        rotate: 180,
+                        transition: { type: "spring", stiffness: 400, damping: 17 }
+                      }}
                       animate={{ opacity: [1, 0.5, 1], scale: [1, 1.15, 1] }}
                       transition={{
                         opacity: { repeat: Infinity, duration: 2, ease: "easeInOut" },
-                        scale: { repeat: Infinity, duration: 2, ease: "easeInOut" },
-                        hover: { type: "spring", stiffness: 400, damping: 17 }
+                        scale: { repeat: Infinity, duration: 2, ease: "easeInOut" }
                       }}
                     >
                       <Sparkle color="#0AD1EE" size={28} weight="bold" />
@@ -362,11 +376,14 @@ export default function Home() {
                   </div>
                   <div className="flex items-start gap-2">
                     <motion.div
-                      whileHover={{ scale: 1.2, y: -5 }}
+                      whileHover={{
+                        scale: 1.2,
+                        y: -5,
+                        transition: { type: "spring", stiffness: 400, damping: 17 }
+                      }}
                       animate={{ y: [0, -3, 0] }}
                       transition={{
-                        y: { repeat: Infinity, duration: 2.5, ease: "easeInOut" },
-                        hover: { type: "spring", stiffness: 400, damping: 17 }
+                        y: { repeat: Infinity, duration: 2.5, ease: "easeInOut" }
                       }}
                     >
                       <Crown color="#FA8136" size={28} weight="bold" />
@@ -378,11 +395,14 @@ export default function Home() {
                   </div>
                   <div className="flex items-start gap-2">
                     <motion.div
-                      whileHover={{ scale: 1.2, rotate: -10 }}
+                      whileHover={{
+                        scale: 1.2,
+                        rotate: -10,
+                        transition: { type: "spring", stiffness: 400, damping: 17 }
+                      }}
                       animate={{ rotate: [-3, 3, -3] }}
                       transition={{
-                        rotate: { repeat: Infinity, duration: 3, ease: "easeInOut" },
-                        hover: { type: "spring", stiffness: 400, damping: 17 }
+                        rotate: { repeat: Infinity, duration: 3, ease: "easeInOut" }
                       }}
                     >
                       <GraduationCap color="#008EA3" size={28} weight="bold" />
