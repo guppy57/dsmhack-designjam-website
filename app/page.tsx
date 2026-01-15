@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import Button from "@/components/Button";
 import BentoCard from "@/components/BentoCard";
@@ -22,6 +23,13 @@ import {
 import { motion } from "framer-motion";
 
 export default function Home() {
+  useEffect(() => {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="relative overflow-hidden">
       {/* Decorative rotating gears */}
@@ -57,13 +65,20 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <Image
-            src="/logo.png"
-            height={100}
-            width={150}
-            className="h-24 w-auto mb-12"
-            alt="DesignJam logo"
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9 }}
+          >
+            <Image
+              src="/logo.png"
+              height={96}
+              width={144}
+              className="h-24 w-auto mb-12"
+              alt="DesignJam logo"
+              priority
+            />
+          </motion.div>
           <motion.h1
             className="text-5xl sm:text-6xl md:text-7xl leading-14 sm:leading-17 md:leading-20 font-bold tracking-tighter"
             initial={{ opacity: 0, y: 20 }}
@@ -322,7 +337,7 @@ export default function Home() {
                       Design with purpose, create with heart, build community
                       impact
                     </h2>
-                    <p className="pb-14 text-lg sm:text-md">
+                    <p className="pb-10 text-lg sm:text-md">
                       Join us for a weekend of creative collaboration where your
                       design talents directly serve nonprofits making a
                       difference in Des Moines. All meals, snacks, and drinks
@@ -334,8 +349,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="hidden md:block col-span-1">
-                  {/*<Image src={""} alt={""} />*/}
-                  <div className="w-full h-full bg-gray-500 rounded-lg" />
+                  <Image src={"/image.jpg"} alt={""} width={200} height={600} className="w-full h-full rounded-lg"/>
+                  {/* <div className="w-full h-full bg-gray-500 rounded-lg" /> */}
                 </div>
               </BentoCard>
             </motion.div>
